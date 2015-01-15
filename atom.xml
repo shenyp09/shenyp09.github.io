@@ -4,7 +4,7 @@
   <subtitle><![CDATA[当你的才华还撑不起你的野心时，你就应该静下心来学习。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://shenyp09.github.io/"/>
-  <updated>2015-01-15T10:28:42.604Z</updated>
+  <updated>2015-01-15T10:36:25.171Z</updated>
   <id>http://shenyp09.github.io/</id>
   
   <author>
@@ -13,6 +13,24 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Switch to Yilia]]></title>
+    <link href="http://shenyp09.github.io/2015/01/15/switch-to-yilia/"/>
+    <id>http://shenyp09.github.io/2015/01/15/switch-to-yilia/</id>
+    <published>2015-01-15T10:29:15.000Z</published>
+    <updated>2015-01-15T10:36:11.000Z</updated>
+    <content type="html"><![CDATA[<p>我打赌，我在前端方面绝对是个颜控。</p>
+<p>Jacman 主题功能非常完善，使用也很方便。但是感觉主题风格还是不是很合我的胃口。扁平化流行了相当一段时间了，我感觉我也被带沟里了。在网上随便一搜，很快就找到了一个中意的主题。</p>
+<p>Github 上搜索 <code>Hexo theme</code> ，排名第一的是 Pacman ，其次就是 Yilia，一看 DEMO 瞬间就喜欢上这个主题了。扁平化非常到位，用色也比较收敛，很符合我的胃口。因此我果断地背叛了 Jacman，转投 Yilia 的怀抱了。不过虽然界面相当漂亮，但是不知道是因为作者喜好极简的缘故还是开发完成度不高的缘故，这个主题配置的丰富程度远远不能和 Jacman 相比。不过这个对我倒暂时不算什么问题，经过昨天的琢磨，现在大概知道该怎么修改这些主题了。暂时只是随手添加了百度统计，看以后需要决定要不要添加更多的功能。当然，如果作者以后自己加上这些功能就太好了。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>我打赌，我在前端方面绝对是个颜控。</p>
+<p>Jacman 主题功能非常完善，使用也很方便。但是感觉主题风格还是不是很合我的胃口。扁平化流行了相当一段时间了，我感觉我也被带沟里了。在网上随便一搜，很快就找到了一个中意的主题。</p>
+<p>Github 上搜索 <cod]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Markdown+Pandoc，打通写作界的任督二脉！（转载）]]></title>
