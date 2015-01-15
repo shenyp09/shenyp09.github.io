@@ -10,24 +10,26 @@
     
     <meta name="author" content="Y.P.Shen">
     
-    <meta name="description" content="原文地址:http://blog.csdn.net/yuanhenglizhen110/article/details/39162649
+    <meta name="description" content="原文地址：http://blog.csdn.net/yuanhenglizhen110/article/details/39162649
 前言
-Markdown+Pandoc，可以把自己的写作内容，变成世界上已有的任何格式的文件，包括很炫的slide，html5。没有人（或者我没看到）总结过这些内容">
+Markdown+Pandoc，可以把自己的写作内容，变成世界上已有的任何格式的文件，包括很炫的slide，html5。没有人（或者我没看到）总结过这些内容，导致我走了很多弯路才最终打通任督二脉，特此纪念。了解Markdwon以后，我的写作世界，只有它；看到Pandoc格式转换以后，对生成的slide和pdf羡慕的不行。那时，自己期望以后的写作是这样的：首先用Markdown把自己的想法写下来；其次，通过Pandoc，把写好的Markdown文件，转换成Slide或者PDF。如此而已。
+但是，我一直对于pandoc不知道怎么去使用。问了一些人，查了很多网页，都没有写如何去使用pandoc，直到，我在github上搭建Blog，安装Ruby，以及安装了Jekyll，才最终发现我会使用Pandoc了。可见，机遇是给有准备的人。
+这周准备R的分享，特意尝试用Markdown和Pandoc准备资料。用Markdown写了10分钟的内容，然后用Pandoc“秒杀”了一个Slide的Html的文件，效果不错。鉴于个人对于过程和效果的喜欢，特别整理，分享给有缘人。个人估计，有缘人看到以后，必定会引起写作界的一波学习热！">
     
     
-    <meta name="description" content="原文地址:http://blog.csdn.net/yuanhenglizhen110/article/details/39162649
+    <meta name="description" content="原文地址：http://blog.csdn.net/yuanhenglizhen110/article/details/39162649
 前言
 Markdown+Pandoc，可以把自己的写作内容，变成世界上已有的任何格式的文件，包括很炫的slide，html5。没有人（或者我没看到）总结过这些内容，导致我走了很多弯路才最终打通任督二脉，特此纪念。了解Markdwon以后，我的写作世界，只有它；看">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Markdown+Pandoc，打通写作界的任督二脉！（转载）">
 <meta property="og:url" content="http://shenyp09.github.io/2015/01/15/how-to-use-markdown/">
 <meta property="og:site_name" content="Shen's Blog">
-<meta property="og:description" content="原文地址:http://blog.csdn.net/yuanhenglizhen110/article/details/39162649
+<meta property="og:description" content="原文地址：http://blog.csdn.net/yuanhenglizhen110/article/details/39162649
 前言
 Markdown+Pandoc，可以把自己的写作内容，变成世界上已有的任何格式的文件，包括很炫的slide，html5。没有人（或者我没看到）总结过这些内容，导致我走了很多弯路才最终打通任督二脉，特此纪念。了解Markdwon以后，我的写作世界，只有它；看">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Markdown+Pandoc，打通写作界的任督二脉！（转载）">
-<meta name="twitter:description" content="原文地址:http://blog.csdn.net/yuanhenglizhen110/article/details/39162649
+<meta name="twitter:description" content="原文地址：http://blog.csdn.net/yuanhenglizhen110/article/details/39162649
 前言
 Markdown+Pandoc，可以把自己的写作内容，变成世界上已有的任何格式的文件，包括很炫的slide，html5。没有人（或者我没看到）总结过这些内容，导致我走了很多弯路才最终打通任督二脉，特此纪念。了解Markdwon以后，我的写作世界，只有它；看">
 
@@ -110,11 +112,12 @@ Markdown+Pandoc，可以把自己的写作内容，变成世界上已有的任�
 		
 		</div>
 		
-		<p>原文地址:<a href="http://blog.csdn.net/yuanhenglizhen110/article/details/39162649" target="_blank" rel="external">http://blog.csdn.net/yuanhenglizhen110/article/details/39162649</a></p>
+		<p>原文地址：<a href="http://blog.csdn.net/yuanhenglizhen110/article/details/39162649" target="_blank" rel="external">http://blog.csdn.net/yuanhenglizhen110/article/details/39162649</a></p>
 <h2 id="前言">前言</h2>
 <p>Markdown+Pandoc，可以把自己的写作内容，变成世界上已有的任何格式的文件，包括很炫的slide，html5。没有人（或者我没看到）总结过这些内容，导致我走了很多弯路才最终打通任督二脉，特此纪念。了解<a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">Markdwon</a>以后，我的写作世界，只有它；看到<a href="http://johnmacfarlane.net/pandoc/" target="_blank" rel="external">Pandoc</a>格式转换以后，对生成的slide和pdf羡慕的不行。那时，自己期望以后的写作是这样的：首先用Markdown把自己的想法写下来；其次，通过Pandoc，把写好的Markdown文件，转换成Slide或者PDF。如此而已。</p>
 <p>但是，我一直对于pandoc不知道怎么去使用。问了一些人，查了很多网页，都没有写如何去使用pandoc，直到，我在github上搭建Blog，安装Ruby，以及安装了Jekyll，才最终发现我会使用Pandoc了。可见，<br><strong>机遇是给有准备的人。</strong></p>
 <p>这周准备R的分享，特意尝试用Markdown和Pandoc准备资料。用Markdown写了10分钟的内容，然后用Pandoc“秒杀”了一个Slide的Html的文件，效果不错。鉴于个人对于过程和效果的喜欢，特别整理，分享给有缘人。个人估计，有缘人看到以后，必定会引起写作界的一波学习热！</p>
+<p><a id="more"></a></p>
 <h2 id="Markdown使用">Markdown使用</h2>
 <p>Markdown，就像一个人的任脉。它简洁，方便，只要集中精力写文章就好，排版不用管。它的语法如此简单，简单的连一个初中生就可以10分钟学会去用，5分钟写一个例子，就会了。此言真不虚。比如，我要写一篇文章,可以这么写：</p>
 <blockquote>

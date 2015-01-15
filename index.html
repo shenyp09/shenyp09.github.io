@@ -95,49 +95,17 @@
 </header>
     <div class="article-content">
         
-        <p>原文地址:<a href="http://blog.csdn.net/yuanhenglizhen110/article/details/39162649" target="_blank" rel="external">http://blog.csdn.net/yuanhenglizhen110/article/details/39162649</a></p>
+        <p>原文地址：<a href="http://blog.csdn.net/yuanhenglizhen110/article/details/39162649" target="_blank" rel="external">http://blog.csdn.net/yuanhenglizhen110/article/details/39162649</a></p>
 <h2 id="前言">前言</h2>
 <p>Markdown+Pandoc，可以把自己的写作内容，变成世界上已有的任何格式的文件，包括很炫的slide，html5。没有人（或者我没看到）总结过这些内容，导致我走了很多弯路才最终打通任督二脉，特此纪念。了解<a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">Markdwon</a>以后，我的写作世界，只有它；看到<a href="http://johnmacfarlane.net/pandoc/" target="_blank" rel="external">Pandoc</a>格式转换以后，对生成的slide和pdf羡慕的不行。那时，自己期望以后的写作是这样的：首先用Markdown把自己的想法写下来；其次，通过Pandoc，把写好的Markdown文件，转换成Slide或者PDF。如此而已。</p>
 <p>但是，我一直对于pandoc不知道怎么去使用。问了一些人，查了很多网页，都没有写如何去使用pandoc，直到，我在github上搭建Blog，安装Ruby，以及安装了Jekyll，才最终发现我会使用Pandoc了。可见，<br><strong>机遇是给有准备的人。</strong></p>
 <p>这周准备R的分享，特意尝试用Markdown和Pandoc准备资料。用Markdown写了10分钟的内容，然后用Pandoc“秒杀”了一个Slide的Html的文件，效果不错。鉴于个人对于过程和效果的喜欢，特别整理，分享给有缘人。个人估计，有缘人看到以后，必定会引起写作界的一波学习热！</p>
-<h2 id="Markdown使用">Markdown使用</h2>
-<p>Markdown，就像一个人的任脉。它简洁，方便，只要集中精力写文章就好，排版不用管。它的语法如此简单，简单的连一个初中生就可以10分钟学会去用，5分钟写一个例子，就会了。此言真不虚。比如，我要写一篇文章,可以这么写：</p>
-<blockquote>
-<p><code># 我的工作</code><br><code>- 工作在Etao</code><br><code>我属于阿里妈妈，是的。你没看错，就是阿里妈妈。</code><br><code>- 工作是BI</code><br><code>我的工作是BI.BI？啥？就是。。。就是。。那个。</code><br><code>- 工作薪水</code><br><code>薪水？老板不让说。不告诉你。</code></p>
-</blockquote>
-<p>展现的样式呢，是这样的：</p>
-<blockquote>
-<h1 id="我的工作">我的工作</h1>
-<hr>
-<ul>
-<li>工作在Etao<br>我属于阿里妈妈，是的。你没看错，就是阿里妈妈。</li>
-<li>工作是BI<br>我的工作是BI.BI？啥？就是。。。就是。。那个。</li>
-<li>工作薪水<br>薪水？老板不让说。不告诉你。</li>
-</ul>
-</blockquote>
-<p>哇，简单么？<code>#</code>就是标题的代表，一个<code>#</code>是一级标题，两个<code>#</code>是二级标题，以此类推。如果要引用，就使用<code>&gt;</code>。多么简单的美好啊！其他的使用方法，大家可以去自己学习一下，你会体会到什么是简单的美好！Markdown的内容写好以后，保存成*.md文件。</p>
-<h2 id="Pandoc使用">Pandoc使用</h2>
-<p>Pandoc，这个不知道怎么发音，google也没找到。好吧，我就读做panda吧，谁让它是国宝。</p>
-<p>Pandoc的运行，是在命令行里面。可是，没那么简单，不是任何一个cmd都可以。你必须要下载Pandoc，请<br><a href="http://johnmacfarlane.net/pandoc/installing.html" target="_blank" rel="external">参考这里</a>.根据自己的os，选择Windows<br>或者其他。</p>
-<p>安装以后，记得Pandoc的目录是啥，然后再到cmd里面去操作一些失传已久的doc命令，转换到pandoc的路径下。</p>
-<p>我个人习惯，是把要转换的文件，比如test.md，放到pandoc的路径下，这样在使用pandoc转换的时候，不用输入太多的路径（尤其是我们很多路径是中文，怕可能有一些问题）。当然，也可以调用其他路径的文件，只要自己觉得舒服。</p>
-<p>pandoc，就像linux下的iconv，可以把其他格式的文件，转化成自己想要的格式。具体的格式参考请看<br><a href="http://johnmacfarlane.net/pandoc/demos.html" target="_blank" rel="external">这里</a>。<br>个人常用的有两个格式转换：</p>
-<blockquote>
-<ul>
-<li>md文件转换成html5<br><code>pandoc -s --mathml -i -t dzslides test.md -o test.html</code></li>
-<li>md文件转换成pdf<br><code>pandoc -t beamer test.md -o test.pdf</code></li>
-</ul>
-</blockquote>
-<p>这里强调一点，如果想转成PDF文件，要安装LATEX。推荐安装MiKTex。但是，中文转PDF，因latex支持中文差，转换有问题。对于Latex熟悉的人，可以参考<a href="http://jiangfeng.org/notes/2013/04/19/markdown-with-pdf.html" target="_blank" rel="external">这个</a>，看是否能解决中文转slide<br>pdf的问题。</p>
-<p>文件转换完成以后，如果有一些地方不合适，可以调整原始的md文件，再转换一次。等熟练以后，从写，到转换就非常迅速了。当然，Pandoc还有很多的转换格式，大家可以自己去研究发觉。记得有好的东西，要分享。</p>
-<h2 id="后记">后记</h2>
-<p>虽然偶不美，但是，对于任何美的东西，尤其是设计或者排版，或者操作界面，自己还是很热衷的。使用Pandoc，自己当初只是喜欢Slide的样式，不用去辛辛苦苦的做PPT,就可以有超过PPT的效果，何乐而不为呢？还有Html5，哦，真的是很炫。</p>
-<p>关于Pandoc的使用，我没有过多的去研究。只是把自己常用的几个功能熟悉了一下。时间，真的真的很宝贵，不知不觉就从指缝中溜走了。所以，我只能在满足自己需求情况下，去使用pandoc。</p>
-<p>期待大家更多的分享！</p>
-
+<p>
         
         
         <p class="article-more-link">
+          
+            <a href="/2015/01/15/how-to-use-markdown/#more">Read More</a>
           
        </p>
     </div>
@@ -266,7 +234,8 @@
 </header>
     <div class="article-content">
         
-        <h2 id="主题介绍">主题介绍</h2>
+        <p>原文地址：<a href="http://wuchong.me/blog/2014/11/20/how-to-use-jacman/" target="_blank" rel="external">http://wuchong.me/blog/2014/11/20/how-to-use-jacman/</a></p>
+<h2 id="主题介绍">主题介绍</h2>
 <p><a href="https://github.com/wuchong/jacman" target="_blank" rel="external">Jacman</a> 是一款扁平化，有着响应式设计的 <a href="http://http://hexo.io/" target="_blank" rel="external">Hexo</a> 主题。本站正式使用了 Jacman 主题。Jacman 基于 <a href="https://github.com/A-limon/pacman" target="_blank" rel="external">Pacman</a> 主题修改而来，目前已有很多特性与原主题不同。你可以前往 <a href="http://wuchong.me" target="_blank" rel="external">本站</a> 和 <a href="http://wuchong.me/jacman" target="_blank" rel="external">Demo</a> 预览更多关于本主题的更多效果。如果你有任何问题或意见欢迎到 GitHub 发表 <a href="https://github.com/wuchong/jacman/issues" target="_blank" rel="external">issue</a>。</p>
 <p>距离当初我把 Jacman 开源至今已有半年零一周了，在这半年里也一直保持着对 Jacman 的更新。看到很多人用这款主题，fork&amp;star 数也越来越好看，我也更有动力继续完善 Jacman。Jacman 自然还有很多改进空间，首先是文档问题，有许多人通过博客、微博、QQ 询问我有关主题的问题，我也意识到之前写的帮助手册可读性太差。正好趁着这次 Jacman 大更新，写篇更详尽、readable 的手册。</p>
 <h2 id="安装指南">安装指南</h2>
