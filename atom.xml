@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Shen's Blog]]></title>
+  <subtitle><![CDATA[当你的才华还撑不起你的野心时，你就应该静下心来学习。]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://shenyp09.github.io/"/>
+  <updated>2015-01-15T10:15:13.134Z</updated>
+  <id>http://shenyp09.github.io/</id>
+  
+  <author>
+    <name><![CDATA[Fermi]]></name>
+    <email><![CDATA[fermi09@me.com]]></email>
+  </author>
+  
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Markdown+Pandoc，打通写作界的任督二脉！（转载）]]></title>
+    <link href="http://shenyp09.github.io/2015/01/15/how-to-use-markdown/"/>
+    <id>http://shenyp09.github.io/2015/01/15/how-to-use-markdown/</id>
+    <published>2015-01-15T02:05:43.000Z</published>
+    <updated>2015-01-15T02:23:42.000Z</updated>
+    <content type="html"><![CDATA[<p>原文地址：<a href="http://blog.csdn.net/yuanhenglizhen110/article/details/39162649" target="_blank" rel="external">http://blog.csdn.net/yuanhenglizhen110/article/details/39162649</a></p>
+<h2 id="前言">前言</h2>
+<p>Markdown+Pandoc，可以把自己的写作内容，变成世界上已有的任何格式的文件，包括很炫的slide，html5。没有人（或者我没看到）总结过这些内容，导致我走了很多弯路才最终打通任督二脉，特此纪念。了解<a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">Markdwon</a>以后，我的写作世界，只有它；看到<a href="http://johnmacfarlane.net/pandoc/" target="_blank" rel="external">Pandoc</a>格式转换以后，对生成的slide和pdf羡慕的不行。那时，自己期望以后的写作是这样的：首先用Markdown把自己的想法写下来；其次，通过Pandoc，把写好的Markdown文件，转换成Slide或者PDF。如此而已。</p>
+<p>但是，我一直对于pandoc不知道怎么去使用。问了一些人，查了很多网页，都没有写如何去使用pandoc，直到，我在github上搭建Blog，安装Ruby，以及安装了Jekyll，才最终发现我会使用Pandoc了。可见，<br><strong>机遇是给有准备的人。</strong></p>
+<p>这周准备R的分享，特意尝试用Markdown和Pandoc准备资料。用Markdown写了10分钟的内容，然后用Pandoc“秒杀”了一个Slide的Html的文件，效果不错。鉴于个人对于过程和效果的喜欢，特别整理，分享给有缘人。个人估计，有缘人看到以后，必定会引起写作界的一波学习热！</p>
+<p><a id="more"></a></p>
+<h2 id="Markdown使用">Markdown使用</h2>
+<p>Markdown，就像一个人的任脉。它简洁，方便，只要集中精力写文章就好，排版不用管。它的语法如此简单，简单的连一个初中生就可以10分钟学会去用，5分钟写一个例子，就会了。此言真不虚。比如，我要写一篇文章,可以这么写：</p>
+<blockquote>
+<p><code># 我的工作</code><br><code>- 工作在Etao</code><br><code>我属于阿里妈妈，是的。你没看错，就是阿里妈妈。</code><br><code>- 工作是BI</code><br><code>我的工作是BI.BI？啥？就是。。。就是。。那个。</code><br><code>- 工作薪水</code><br><code>薪水？老板不让说。不告诉你。</code></p>
+</blockquote>
+<p>展现的样式呢，是这样的：</p>
+<blockquote>
+<h1 id="我的工作">我的工作</h1>
+<hr>
+<ul>
+<li>工作在Etao<br>我属于阿里妈妈，是的。你没看错，就是阿里妈妈。</li>
+<li>工作是BI<br>我的工作是BI.BI？啥？就是。。。就是。。那个。</li>
+<li>工作薪水<br>薪水？老板不让说。不告诉你。</li>
+</ul>
+</blockquote>
+<p>哇，简单么？<code>#</code>就是标题的代表，一个<code>#</code>是一级标题，两个<code>#</code>是二级标题，以此类推。如果要引用，就使用<code>&gt;</code>。多么简单的美好啊！其他的使用方法，大家可以去自己学习一下，你会体会到什么是简单的美好！Markdown的内容写好以后，保存成*.md文件。</p>
+<h2 id="Pandoc使用">Pandoc使用</h2>
+<p>Pandoc，这个不知道怎么发音，google也没找到。好吧，我就读做panda吧，谁让它是国宝。</p>
+<p>Pandoc的运行，是在命令行里面。可是，没那么简单，不是任何一个cmd都可以。你必须要下载Pandoc，请<br><a href="http://johnmacfarlane.net/pandoc/installing.html" target="_blank" rel="external">参考这里</a>.根据自己的os，选择Windows<br>或者其他。</p>
+<p>安装以后，记得Pandoc的目录是啥，然后再到cmd里面去操作一些失传已久的doc命令，转换到pandoc的路径下。</p>
+<p>我个人习惯，是把要转换的文件，比如test.md，放到pandoc的路径下，这样在使用pandoc转换的时候，不用输入太多的路径（尤其是我们很多路径是中文，怕可能有一些问题）。当然，也可以调用其他路径的文件，只要自己觉得舒服。</p>
+<p>pandoc，就像linux下的iconv，可以把其他格式的文件，转化成自己想要的格式。具体的格式参考请看<br><a href="http://johnmacfarlane.net/pandoc/demos.html" target="_blank" rel="external">这里</a>。<br>个人常用的有两个格式转换：</p>
+<blockquote>
+<ul>
+<li>md文件转换成html5<br><code>pandoc -s --mathml -i -t dzslides test.md -o test.html</code></li>
+<li>md文件转换成pdf<br><code>pandoc -t beamer test.md -o test.pdf</code></li>
+</ul>
+</blockquote>
+<p>这里强调一点，如果想转成PDF文件，要安装LATEX。推荐安装MiKTex。但是，中文转PDF，因latex支持中文差，转换有问题。对于Latex熟悉的人，可以参考<a href="http://jiangfeng.org/notes/2013/04/19/markdown-with-pdf.html" target="_blank" rel="external">这个</a>，看是否能解决中文转slide<br>pdf的问题。</p>
+<p>文件转换完成以后，如果有一些地方不合适，可以调整原始的md文件，再转换一次。等熟练以后，从写，到转换就非常迅速了。当然，Pandoc还有很多的转换格式，大家可以自己去研究发觉。记得有好的东西，要分享。</p>
+<h2 id="后记">后记</h2>
+<p>虽然偶不美，但是，对于任何美的东西，尤其是设计或者排版，或者操作界面，自己还是很热衷的。使用Pandoc，自己当初只是喜欢Slide的样式，不用去辛辛苦苦的做PPT,就可以有超过PPT的效果，何乐而不为呢？还有Html5，哦，真的是很炫。</p>
+<p>关于Pandoc的使用，我没有过多的去研究。只是把自己常用的几个功能熟悉了一下。时间，真的真的很宝贵，不知不觉就从指缝中溜走了。所以，我只能在满足自己需求情况下，去使用pandoc。</p>
+<p>期待大家更多的分享！</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>原文地址：<a href="http://blog.csdn.net/yuanhenglizhen110/article/details/39162649" target="_blank" rel="external">http://blog.csdn.net/yuanhenglizhen110/article/details/39162649</a></p>
+<h2 id="前言">前言</h2>
+<p>Markdown+Pandoc，可以把自己的写作内容，变成世界上已有的任何格式的文件，包括很炫的slide，html5。没有人（或者我没看到）总结过这些内容，导致我走了很多弯路才最终打通任督二脉，特此纪念。了解<a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">Markdwon</a>以后，我的写作世界，只有它；看到<a href="http://johnmacfarlane.net/pandoc/" target="_blank" rel="external">Pandoc</a>格式转换以后，对生成的slide和pdf羡慕的不行。那时，自己期望以后的写作是这样的：首先用Markdown把自己的想法写下来；其次，通过Pandoc，把写好的Markdown文件，转换成Slide或者PDF。如此而已。</p>
+<p>但是，我一直对于pandoc不知道怎么去使用。问了一些人，查了很多网页，都没有写如何去使用pandoc，直到，我在github上搭建Blog，安装Ruby，以及安装了Jekyll，才最终发现我会使用Pandoc了。可见，<br><strong>机遇是给有准备的人。</strong></p>
+<p>这周准备R的分享，特意尝试用Markdown和Pandoc准备资料。用Markdown写了10分钟的内容，然后用Pandoc“秒杀”了一个Slide的Html的文件，效果不错。鉴于个人对于过程和效果的喜欢，特别整理，分享给有缘人。个人估计，有缘人看到以后，必定会引起写作界的一波学习热！</p>
+<p>]]>
+    
+    </summary>
+    
+      <category term="Markdown" scheme="http://shenyp09.github.io/tags/Markdown/"/>
+    
+      <category term="pandoc" scheme="http://shenyp09.github.io/tags/pandoc/"/>
+    
+      <category term="Markdown" scheme="http://shenyp09.github.io/categories/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Github，Gitcafe以及Coding比较]]></title>
+    <link href="http://shenyp09.github.io/2015/01/14/hosting-service/"/>
+    <id>http://shenyp09.github.io/2015/01/14/hosting-service/</id>
+    <published>2015-01-14T12:36:28.000Z</published>
+    <updated>2015-01-15T00:49:37.000Z</updated>
+    <content type="html"><![CDATA[<p>今天突发奇想，想要再次尝试建立个博客，很自然的就需要寻找相应的代码托管平台来托管博客的代码。作为一个正常人，我第一个想到的当然是 Github ，不过鉴于GFW的突出贡献， Github 在国内的速度实在是不敢恭维，因此希望能够在找一个国内的代码托管平台来代替。</p>
+<p>由于微博上关注了 Coding 的官微，所以经常看到与 Coding 相关的新闻，所以对其印象比较好。加之最近正在建设的 <a href="http://esic.ciae.ac.cn/juna" target="_blank" rel="external">JUNA</a> 的网站的代码也托管在 Coding 上，经过这段时间的使用，其速度还是给我留下了深刻的印象。因此，似乎把博客托管到 Coding 上是个不错的选择。</p>
+<p>博客使用的是 Hexo 来搭建的。 Wordpress 什么的早就不想了，因为实在是太臃肿了，总是被技术、设计等细枝末节的问题吸引（好吧，我就是个找不到重点的人）而导致无法把精力投入到写作当中。而 Hexo 带给我最大的惊喜就是我只要专注于写作就好了，其他的根本无需纠结（我也懒得纠结， <a href="https://github.com/wuchong/jacman" target="_blank" rel="external">Jacman</a> 的主题相当的不错）。额，好像又没找到重点。</p>
+<p>说回 Coding ，由于<a href="http://esic.ciae.ac.cn/juna" target="_blank" rel="external">JUNA</a>的网站并没有托管在 Coding 上，因此之前一直没有了解在 Coding 中怎么托管静态网站，至于 Hexo 怎么直接部署在 Coding 上更是完全没有头绪。上网搜了一下，发现倒是有办法托管上去，但是很快就遇到了一个大坑。 Coding 上部署静态网站实际上是PaaS，而我每次更新博客居然在 Coding 上重新部署服务器才行。这真是个痛苦的过程，博客不像其他静态网站，修改频率相当高，每次都部署实在是太麻烦了。我瞬间就绝了在 Coding 上部署博客的念想。</p>
+<p>剩下的似乎只有 GitCafe 可以尝试了。其实在很久以前我曾经使用过 GitCafe 的，在它上面部署静态网页跟 Github 很类似，体验也还不错。但是最大的坑就是它的速度根本不像是个国内的网站（或者根本就不是？）！我抱着过了这么久了应该会有所改进的期望，重新登入了 GitCafe （密码都快忘掉了），果不其然，还是一如既往的慢。呵呵。。。</p>
+<p>最终我还是重新回到了 Github 的怀抱，虽然速度慢点儿，好在每次上传的代码量比较少，总算还能凑合着用。</p>
+<hr>
+<p>PS：貌似 Coding 是有自动更新的功能的，但是我按照指导来配置发现根本无法成功。而且部署的速度时快时慢，有时候要十几分钟。年龄大了，懒得折腾了。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>今天突发奇想，想要再次尝试建立个博客，很自然的就需要寻找相应的代码托管平台来托管博客的代码。作为一个正常人，我第一个想到的当然是 Github ，不过鉴于GFW的突出贡献， Github 在国内的速度实在是不敢恭维，因此希望能够在找一个国内的代码托管平台来代替。</p>
+<]]>
+    </summary>
+    
+      <category term="Git" scheme="http://shenyp09.github.io/tags/Git/"/>
+    
+      <category term="Git" scheme="http://shenyp09.github.io/categories/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[如何使用 Jacman 主题 (转载)]]></title>
+    <link href="http://shenyp09.github.io/2015/01/14/how-to-use-jacman/"/>
+    <id>http://shenyp09.github.io/2015/01/14/how-to-use-jacman/</id>
+    <published>2015-01-14T09:04:17.000Z</published>
+    <updated>2015-01-15T02:24:53.000Z</updated>
+    <content type="html"><![CDATA[<p>原文地址：<a href="http://wuchong.me/blog/2014/11/20/how-to-use-jacman/" target="_blank" rel="external">http://wuchong.me/blog/2014/11/20/how-to-use-jacman/</a></p>
+<h2 id="主题介绍">主题介绍</h2>
+<p><a href="https://github.com/wuchong/jacman" target="_blank" rel="external">Jacman</a> 是一款扁平化，有着响应式设计的 <a href="http://http://hexo.io/" target="_blank" rel="external">Hexo</a> 主题。本站正式使用了 Jacman 主题。Jacman 基于 <a href="https://github.com/A-limon/pacman" target="_blank" rel="external">Pacman</a> 主题修改而来，目前已有很多特性与原主题不同。你可以前往 <a href="http://wuchong.me" target="_blank" rel="external">本站</a> 和 <a href="http://wuchong.me/jacman" target="_blank" rel="external">Demo</a> 预览更多关于本主题的更多效果。如果你有任何问题或意见欢迎到 GitHub 发表 <a href="https://github.com/wuchong/jacman/issues" target="_blank" rel="external">issue</a>。</p>
+<p>距离当初我把 Jacman 开源至今已有半年零一周了，在这半年里也一直保持着对 Jacman 的更新。看到很多人用这款主题，fork&amp;star 数也越来越好看，我也更有动力继续完善 Jacman。Jacman 自然还有很多改进空间，首先是文档问题，有许多人通过博客、微博、QQ 询问我有关主题的问题，我也意识到之前写的帮助手册可读性太差。正好趁着这次 Jacman 大更新，写篇更详尽、readable 的手册。</p>
+<h2 id="安装指南">安装指南</h2>
+<h3 id="安装">安装</h3>
+<p>在博客根目录下执行如下命令。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/wuchong</span><span class="regexp">/jacman.git themes/jacman</span></div></pre></td></tr></table></figure>
+
+<p>Jacman 需要安装 Hexo 2.7 及以上版本，请先升级您的 Hexo 程序，再启用此主题。</p>
+<h3 id="启用">启用</h3>
+<p>修改你的博客根目录下的<code>_config.yml</code>配置文件中的<code>theme</code>属性，将其设置为<code>jacman</code>。同时建议设置<code>stylus</code>属性中的<code>compress</code>值为true，会自动压缩 CSS 文件，hexo默认配置中不包含这一项，建议开启。如下。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">theme: jacman</div><div class="line">stylus:</div><div class="line">  <span class="built_in">compress</span>: <span class="constant">true</span></div></pre></td></tr></table></figure>
+
+<h3 id="更新">更新</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> themes/jacman</div><div class="line">git pull origin master</div></pre></td></tr></table></figure>
+
+<p>请先备份您主题目录下的 <code>_config.yml</code> 文件后再升级。</p>
+<p><a id="more"></a></p>
+<h2 id="配置指南">配置指南</h2>
+<p>Jacman 主题提供了丰富的配置属性，可以实现您对主题的自定义。配置文件<code>_config.yml</code>位于主题根目录下。本次更新对配置文件进行了较大调整，如您之前就使用了 Jacman，也需要您根据以下指南进行相应的修改。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div></pre></td><td class="code"><pre><div class="line"><span class="comment">##### 菜单</span></div><div class="line">menu:</div><div class="line">  主页: /</div><div class="line">  归档: /archives</div><div class="line">  关于: /about</div><div class="line"></div><div class="line"><span class="comment">#### 控件</span></div><div class="line">widgets: </div><div class="line">- category</div><div class="line">- tag</div><div class="line">- links</div><div class="line">- rss</div><div class="line"></div><div class="line"><span class="comment">#### RSS </span></div><div class="line">rss: /atom.xml </div><div class="line"></div><div class="line"><span class="comment">#### 图片相关</span></div><div class="line">imglogo:</div><div class="line">  enable: <span class="literal">true</span>               <span class="comment">## 是否显示网站 logo</span></div><div class="line">  src: img/logo.png        </div><div class="line">favicon: img/favicon.ico     <span class="comment">## 网站图标    </span></div><div class="line">apple_icon: img/jacman.jpg   <span class="comment">## 苹果设备上的图标，背景不要透明</span></div><div class="line">author_img: img/author.jpg   <span class="comment">## 网站底部的博主头像</span></div><div class="line"></div><div class="line"><span class="comment">#### 首页相关</span></div><div class="line">index:</div><div class="line">  expand: <span class="literal">true</span>              <span class="comment">## 首页文章是否展开。默认为展开式，显示 Read More。</span></div><div class="line">  excerpt_link: Read More    </div><div class="line">  </div><div class="line"><span class="comment">#### 作者信息</span></div><div class="line">author:</div><div class="line">  intro_line1:  <span class="string">"Hello ,I'm Larry Page in Google."</span>    <span class="comment">## 网站底部的个人介绍</span></div><div class="line">  intro_line2:  <span class="string">"This is my blog,believe it or not."</span>  </div><div class="line">  weibo_verifier:  <span class="comment">## 微博秀的验证码</span></div><div class="line">  tsina:           <span class="comment">## 用于微博秀和微博分享</span></div><div class="line">  weibo:           <span class="comment">## 用于显示网站底部社交按钮，下同</span></div><div class="line">  douban:         </div><div class="line">  zhihu:  </div><div class="line">  email:     </div><div class="line">  twitter:   </div><div class="line">  github:     </div><div class="line">  facebook: </div><div class="line">  linkedin:   </div><div class="line">  google_plus:   </div><div class="line">  stackoverflow:  </div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#### 目录</span></div><div class="line">toc:</div><div class="line">  article: <span class="literal">true</span>   <span class="comment">## 是否在文章中显示目录</span></div><div class="line">  aside: <span class="literal">true</span>     <span class="comment">## 是否在侧边栏显示目录</span></div><div class="line"></div><div class="line"><span class="comment">#### 友情链接</span></div><div class="line">links:</div><div class="line">  码农圈: https://coderq.com,一个面向程序员交流分享的新一代社区</div><div class="line">  Jark's Blog: http://wuchong.me</div><div class="line">  </div><div class="line"><span class="comment">#### 评论</span></div><div class="line">duoshuo_shortname: </div><div class="line">disqus_shortname:  </div><div class="line"></div><div class="line"><span class="comment">#### 分享按钮</span></div><div class="line">jiathis:</div><div class="line">  enable: <span class="literal">false</span>   <span class="comment">## 默认使用主题内建分享</span></div><div class="line">  id:    </div><div class="line">  tsina: </div><div class="line">  </div><div class="line"><span class="comment">#### 网站统计</span></div><div class="line">google_analytics:</div><div class="line">  enable: <span class="literal">false</span></div><div class="line">  id:            <span class="comment">## google analytics ID.</span></div><div class="line">  site:          <span class="comment">## 网站地址.</span></div><div class="line">baidu_tongji:</div><div class="line">  enable: <span class="literal">false</span></div><div class="line">  sitecode:      <span class="comment">## 百度统计站点特征码</span></div><div class="line">cnzz_tongji:</div><div class="line">  enable: <span class="literal">false</span></div><div class="line">  siteid:        <span class="comment">## CNZZ统计站点ID</span></div><div class="line"></div><div class="line"><span class="comment">#### 杂项</span></div><div class="line">ShowCustomFont: <span class="literal">true</span>  </div><div class="line">fancybox: <span class="literal">true</span>        </div><div class="line">totop: <span class="literal">true</span>           </div><div class="line"></div><div class="line"><span class="comment">#### 自定义搜索</span></div><div class="line">google_cse: </div><div class="line">  enable: <span class="literal">false</span></div><div class="line">  cx:  </div><div class="line">baidu_search:    </div><div class="line">  enable: <span class="literal">false</span></div><div class="line">  id:   </div><div class="line">  site: http://zhannei.baidu.com/cse/search</div></pre></td></tr></table></figure>
+
+<h3 id="属性功能">属性功能</h3>
+<ul>
+<li><strong>菜单 menu</strong><br>默认没有启用 <code>/tags</code> 和 <code>/categories</code>页面，如果需要启用请在博客目录下的<code>source</code>文件夹中分别建立<code>tags</code> 和 <code>categories</code>文件夹每个文件夹中分别包含一个<code>index.md</code>文件。内容为：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout: tags (或categories)</div><div class="line"><span class="header">title: tags (或categories)</span></div><div class="line">---</div></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因为主题中已经内置了这两个页面的模板，所以他们会被正确的解析出来。</p>
+<ul>
+<li><p><strong>控件 widgets</strong><br>提供了7种小工具。包括标签、标签云、分类、归档、RSS、友情链接、微博秀。</p>
+<p><strong>友情链接</strong>：友情链接的网址添加可以在<code>links</code>属性下添加。</p>
+<p><strong>微博秀</strong>：需要注意的是，如果要启用微博秀，您必须填上<code>author</code>属性下<code>tsina</code>和<code>weibo_verifier</code>的值，前者是您微博ID，后者是您微博秀的验证码，访问 <a href="http://app.weibo.com/tool/weiboshow" target="_blank" rel="external">http://app.weibo.com/tool/weiboshow</a> 在如下图位置，可以获得您的 verifier，如：我的是<code>b3593ceb</code>。<br><img src="http://ww1.sinaimg.cn/large/81b78497jw1emegd6b0ytj209204pweu.jpg" alt=""></p>
+</li>
+<li><p><strong>图片相关 Image</strong><br>本主题可以设置网站相关图片，例如网站图标（<code>favicon</code>）、网站logo（<code>imglogo</code>）、作者头像（<code>author_img</code>）。建议启用网站logo，格式建议为<code>.svg</code>或<code>.png</code>格式。同时建议提供配套的 favicon 以及在苹果设备上的图标<code>apple_icon</code>（背景不要透明）。</p>
+</li>
+<li><p><strong>首页显示模式 Index</strong><br>目前首页的显示模式支持两种，一种是原先的卡片式（前往 <a href="http://wuchong.me/jacman" target="_blank" rel="external">Demo</a> 预览），另一种是类似官方主题的文章展开式（<a href="http://wuchong.me" target="_blank" rel="external">本站</a>即采用的这种）。两者各有优劣，前者首页加载速度更快，后者文章内容更能吸引读者。主题默认采用后一种展开式，如需开启第一种卡片式，请设置<code>index</code>属性下的<code>expand: false</code>。</p>
+<p>卡片式的文章摘要是截取文章内容的前140个字，也可以自己总结<code>description</code>并将其放在开头的<code>front-matter</code>中。展开式的文章摘要就是使用<code>&lt;!-- more --&gt;</code>截取了。</p>
+</li>
+<li><p><strong>作者信息 author</strong><br>作者信息，建议尽量填写完整。其中<code>tsina</code>是你的新浪微博ID，不同于用户名或微博主页地址。启用这个属性后，其他用户在微博上分享你文章的同时会自动@你。同时它和<code>weibo_verifier</code>一起作用生成微博秀。<code>intro_line1</code>和<code>intro_line2</code>是网站底部的个人介绍。<code>weibo</code>、<code>twitter</code>、<code>facebook</code>等是用来显示网站右下角的社交按钮的，如下图所示。<br><img src="http://ww4.sinaimg.cn/large/81b78497jw1emgscr3575j2078050jrc.jpg" alt=""></p>
+</li>
+<li><p><strong>目录 toc</strong><br>是否启用在文章中或侧边栏中的目录功能。二者可以都为<code>true</code>或都为<code>false</code>。同时，如果你希望在特定的某一篇文章中关闭目录功能你可以在文章文件开头中的<code>front-matter</code>中加上一行<code>toc: false</code>。如果希望在某一篇文章中关闭目录自动编号功能你可以在文章文件开头的<code>front-matter</code>中加上一行<code>list_number: false</code>。另外 hexo 2.5.2 开始支持中文目录，想获得更好的体验请升级你的 Hexo 版本。</p>
+</li>
+<li><p><strong>评论 comments</strong><br>填写<code>duoshuo_shortname</code><a href="http://duoshuo.com/" target="_blank" rel="external">多说</a>的用户名，启用多说评论系统。在大陆地区更好用的评论系统。</p>
+<p>填写<code>disqus_shortname</code><a href="http://disqus.com/" target="_blank" rel="external">disqus</a> 的用户名，启用 disqus 评论系统。国际上更广泛使用的评论系统。设置博客根目录下的<code>_config.yml</code>文件中的<code>disqus_shortname</code>同样也能开启该功能。</p>
+</li>
+<li><p><strong>加网分享 jiathis</strong><br><a href="http://www.jiathis.com/" target="_blank" rel="external">加网</a>分享系统。默认关闭，因为主题已经内置了原生的分享功能。</p>
+</li>
+<li><p><strong>网站统计 Analytics</strong><br><code>google_analytics</code>：Google Analytics追踪代码。请注意：Google Analytics已经升级到了Universal Analytics。请先前往后台升级你的Google Analytics版本后再启用追踪代码，更多信息请<a href="https://developers.google.com/analytics/devguides/collection/upgrade/?hl=zh_CN" target="_blank" rel="external">点击这里</a>了解。</p>
+<p><code>baidu_tongji</code>：百度统计功能。需要填写站点特征码<code>sitecode</code>，在<a href="http://tongji.baidu.com/web/welcome/login" target="_blank" rel="external">官网</a>注册并配置站点后，获取特征码。特征码可以在「网站中心」-&gt; 「代码获取」中查看，如下图所示的<code>e6d1f421bbc9962127a50488f9ed37d1</code>，注意去掉前面的<code>3F</code>。<br><img src="http://ww4.sinaimg.cn/large/81b78497jw1emf4v6qf91j20kf07sq8v.jpg" alt=""></p>
+<p><code>cnzz_tongji</code>：站长统计功能。需要填写站点ID<code>siteid</code>，同理在<a href="http://www.cnzz.com" target="_blank" rel="external">站长官网</a>注册并配置站点后获得。</p>
+</li>
+<li><p><strong>数学公式 mathjax</strong><br>主题支持写 LaTex 数学公式。只需要在文章文件开头的<code>front-matter</code>中，加上一行<code>mathjax: true</code>，即可在文中写 LaTex 公式。</p>
+</li>
+<li><p><strong>图片浏览 fancybox</strong><br>默认关闭，如果你使用 Hexo 经常发表 Gallery 类型的文章，那么请设置为<code>true</code>。</p>
+</li>
+<li><p><strong>返回顶部 totop</strong><br>右下角<code>返回顶部</code>按钮，默认开启。</p>
+</li>
+<li><p><strong>自定义字体 ShowCustomFont</strong><br>是否启用自定义字体，默认开启，主要用于显示网站底部的字体。如果你有一定前端基础可以修改 font.styl 替换为你喜欢的字体。</p>
+</li>
+<li><p><strong>自定义搜索 Search</strong><br><code>baidu_search</code>：如果开启百度站内搜索需要登录 <a href="http://zn.baidu.com/" target="_blank" rel="external">百度站内搜索</a>，配置好你的站点，并开启站内搜索获取搜索ID，另外<code>site</code>属性可以填默认值，也可以填自己做了CNAME的二级域名，更详细的可以阅读<a href="http://gengbiao.me/hexo/hexo%E6%B7%BB%E5%8A%A0%E7%99%BE%E5%BA%A6%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/" target="_blank" rel="external">这篇博客</a>了解。</p>
+<p><code>google_cse</code>：如果开启谷歌自定义搜索需要先登录 <a href="https://www.google.com/cse/" target="_blank" rel="external">Google CSE</a>，配置好你的站点，并获得此自定义搜索的ID。此外你需要在博客目录下的<code>source</code>文件夹中建立<code>search</code>文件夹并包含一个<code>index.md</code>文件。内容为：</p>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">layout: search</div><div class="line"><span class="header">title: search</span></div><div class="line">---</div></pre></td></tr></table></figure>
+
+
+
+
+
+
+<h2 id="常见问题">常见问题</h2>
+<ul>
+<li><p><strong>Q：图片默认都是居左的，我怎么设置能让图片居中呢？</strong></p>
+<blockquote>
+<p>使用 <code>&lt;img src=&quot;&quot; style=&quot;display:block;margin:auto&quot;/&gt;</code>的HTML标签。</p>
+</blockquote>
+</li>
+<li><p><strong>Q：如何建立一篇图片类文章（Gallery Post）？</strong></p>
+<blockquote>
+<p>使用<code>hexo new photo &quot;your titile&quot;</code>建立图片类文章，或者直接新建一个 Markdown 文件，将其<code>front-matter</code>修改为如下，即可看到主题为图片类文章提供的样式，<a href="http://wuchong.me/jacman/gallery" target="_blank" rel="external">Demo</a>。</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">---</span></div><div class="line">layout: photo</div><div class="line">title: Gallery Post</div><div class="line">photos:</div><div class="line"><span class="bullet">- </span>http://i.minus.com/ibobbTlfxZgITW.jpg</div><div class="line"><span class="header">- http://i.minus.com/iedpg90Y0exFS.jpg</span></div><div class="line">---</div></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>Q：我在配置文件中给某一项设置了值，但为什么总是看不到效果啊？</strong></p>
+<blockquote>
+<p><code>_config.yml</code>文件中的每个属性值前面必须留一个空格，建议在 Sublime/Notepad++ 中开启显示所有空格模式。另每篇文章的 <code>front-matter</code> 也要注意这个问题。</p>
+</blockquote>
+</li>
+<li><p><strong>Q：如何建立自我介绍页面（About 页面）？</strong></p>
+<blockquote>
+<p>首先在主目录找到<code>_config.yml</code>，找到url添加<code>about_dir: about</code>到这个板块。然后在<code>/source</code>里面建立about文件夹。在about文件夹里建立index.md。编辑index.md就和发布其他的文章一样，格式都一样。</p>
+</blockquote>
+</li>
+<li><p><strong>Q：怎么提意见和建议？</strong></p>
+<blockquote>
+<p>主题还在不断完善中，欢迎 <a href="https://github.com/wuchong/jacman/issues" target="_blank" rel="external">open issue</a> 来提建议，参与讨论。</p>
+</blockquote>
+</li>
+<li><p><strong>Q：楼主我不喜欢你的配色，怎么换主题的颜色呢？</strong></p>
+<blockquote>
+<p>包括颜色在内的很多变量都在<code>jacman/source/css/_base/variable.styl</code>文件中，可以修改成你喜欢的。</p>
+</blockquote>
+</li>
+<li><p><strong>Q：英语更能突显我的逼格，怎么换成英语？</strong></p>
+<blockquote>
+<p>配置你的博客根目录下的<code>_config.yml</code>，去掉<code>language: zh-CN</code>。</p>
+</blockquote>
+</li>
+<li><p><strong>Q：为什么我修改了配置文件/发表了博文，解析出来的却是乱码呢？ </strong></p>
+<blockquote>
+<p>请将你的配置文件/markdown文件保存成 <code>UTF-8</code> 格式。</p>
+</blockquote>
+</li>
+<li><p><strong>Q：为什么开启了微博秀后，显示是空白的，没有内容展示？ </strong></p>
+<blockquote>
+<p>每次修改参数都会这样，需要多刷新几次或者上传到服务器上就好了。</p>
+</blockquote>
+</li>
+<li><p><strong>Q：博主 Jacman Demo 站点中文章的 md 源文件在哪能看到呢？ </strong></p>
+<blockquote>
+<p>我将 Demo 站点所有源文件放在了 Jacman 的 <a href="https://github.com/wuchong/jacman/tree/site" target="_blank" rel="external">site</a> 分支下。</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[Jacman 是一款扁平化，有着响应式设计的 Hexo 主题。本站正式使用了 Jacman 主题。Jacman 基于 Pacman 主题修改而来，而今已有很多特性与原主题不同。你可以前往本站和 Demo 预览更多关于本主题的更多效果。如果你有任何问题或意见欢迎到 GitHub 发表 issue。]]>
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://shenyp09.github.io/tags/Hexo/"/>
+    
+      <category term="Jacman" scheme="http://shenyp09.github.io/tags/Jacman/"/>
+    
+      <category term="Hexo" scheme="http://shenyp09.github.io/categories/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[博客，开始]]></title>
+    <link href="http://shenyp09.github.io/2015/01/14/%E5%8D%9A%E5%AE%A2%EF%BC%8C%E5%BC%80%E5%A7%8B/"/>
+    <id>http://shenyp09.github.io/2015/01/14/博客，开始/</id>
+    <published>2015-01-14T07:40:13.000Z</published>
+    <updated>2015-01-14T09:07:05.000Z</updated>
+    <content type="html"><![CDATA[<p>已经无数次打算开始写博客了，但是每一次都因为懒而失败。好吧，我决定再试一次。</p>
+<p>至少要证明我还有东西可写。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>已经无数次打算开始写博客了，但是每一次都因为懒而失败。好吧，我决定再试一次。</p>
+<p>至少要证明我还有东西可写。</p>
+]]>
+    </summary>
+    
+      <category term="随想" scheme="http://shenyp09.github.io/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+      <category term="杂" scheme="http://shenyp09.github.io/categories/%E6%9D%82/"/>
+    
+  </entry>
+  
+</feed>
