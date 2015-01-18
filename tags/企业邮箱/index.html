@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: Jacman | Shen&#39;s Blog</title>
+  <title>Tag: 企业邮箱 | Shen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Shen's Blog">
-<meta property="og:url" content="http://shenyp09.github.io/tags/Jacman/">
+<meta property="og:url" content="http://shenyp09.github.io/tags/企业邮箱/">
 <meta property="og:site_name" content="Shen's Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -185,19 +185,19 @@ ga('send', 'pageview');
 </nav>
       
   
-    <article id="post-how-to-use-jacman" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-如何搭建自己的企业邮箱" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/14/how-to-use-jacman/" class="article-date">
-  	<time datetime="2015-01-14T09:04:17.000Z" itemprop="datePublished">1月 14 2015</time>
+      <a href="/2015/01/18/如何搭建自己的企业邮箱/" class="article-date">
+  	<time datetime="2015-01-18T12:25:57.000Z" itemprop="datePublished">1月 18 2015</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+    <a class="article-category-link" href="/categories/工作/">工作</a>
   </div>
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jacman/">Jacman</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/企业邮箱/">企业邮箱</a></li></ul>
 
     </div>
   
@@ -210,7 +210,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/14/how-to-use-jacman/">如何使用 Jacman 主题 (转载)</a>
+      <a class="article-title" href="/2015/01/18/如何搭建自己的企业邮箱/">如何搭建自己的企业邮箱</a>
     </h1>
   
 
@@ -218,30 +218,18 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>原文地址：<a href="http://wuchong.me/blog/2014/11/20/how-to-use-jacman/" target="_blank" rel="external">http://wuchong.me/blog/2014/11/20/how-to-use-jacman/</a></p>
-<h2 id="主题介绍">主题介绍</h2>
-<p><a href="https://github.com/wuchong/jacman" target="_blank" rel="external">Jacman</a> 是一款扁平化，有着响应式设计的 <a href="http://http://hexo.io/" target="_blank" rel="external">Hexo</a> 主题。本站正式使用了 Jacman 主题。Jacman 基于 <a href="https://github.com/A-limon/pacman" target="_blank" rel="external">Pacman</a> 主题修改而来，目前已有很多特性与原主题不同。你可以前往 <a href="http://wuchong.me" target="_blank" rel="external">本站</a> 和 <a href="http://wuchong.me/jacman" target="_blank" rel="external">Demo</a> 预览更多关于本主题的更多效果。如果你有任何问题或意见欢迎到 GitHub 发表 <a href="https://github.com/wuchong/jacman/issues" target="_blank" rel="external">issue</a>。</p>
-<p>距离当初我把 Jacman 开源至今已有半年零一周了，在这半年里也一直保持着对 Jacman 的更新。看到很多人用这款主题，fork&amp;star 数也越来越好看，我也更有动力继续完善 Jacman。Jacman 自然还有很多改进空间，首先是文档问题，有许多人通过博客、微博、QQ 询问我有关主题的问题，我也意识到之前写的帮助手册可读性太差。正好趁着这次 Jacman 大更新，写篇更详尽、readable 的手册。</p>
-<h2 id="安装指南">安装指南</h2>
-<h3 id="安装">安装</h3>
-<p>在博客根目录下执行如下命令。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/wuchong</span><span class="regexp">/jacman.git themes/jacman</span></div></pre></td></tr></table></figure>
+        <p>如何搭建一个自己的企业邮箱？</p>
+<h2 id="需求">需求</h2>
+<p>最近GFW越来越猛，直接导致Gmail不能使用。本来心里抱着能用就用，不能用还有国内邮箱撑着，实在不行翻翻墙也好的心态，想得过且过。但前两天跟BOSS开会，发现今年中旬的一个国际会议的注册系统不好使了。回来一看，发现注册系统激活邮件的发送邮箱居然用的是Gmail。再一看数据库，发现不少注册待激活的用户，顿时一身冷汗。这些激活不了的显然就是因为激活邮件发不出去导致的，太坑爹了！</p>
+<p>怎么办？看来Gmail是不能用了，必须换个稳定的邮箱。由于种种原因，我所在的单位的邮箱并不给我们提供SMTP服务，所以使用单位邮箱这个最优选择直接就被否决了。这似乎也是之前我偷懒使用Gmail的原因，毕竟Gmail看起来会稍微正式一点。163、qq什么的显然是不能用了，要是用户看到激活邮件居然是xxx@qq.com发出来的邮件，必然会觉得这套系统low到极点了，进一步会觉得我们的国际会议low到极点了，进一步BOSS就会削死我的，OMG!</p>
+<p>看来自定义域名的邮箱是最好的。之前似乎已经注意到一部分邮箱是自持自定义域名的，比如qq邮箱，但是我又不想每次都申请个qq邮箱，这样管理起来非常麻烦。所以直接申请企业邮箱是极好的了。</p>
+<h2 id="企业邮箱">企业邮箱</h2>
+<p>目前国内的企业邮箱服务提供商似乎不少，免费的和收费的都有。我简单搜了一下，貌似阿里、腾讯、网易和新浪都有提供，其中新浪、网易和腾讯都有免费版，阿里只有收费版，而且价格不低。而新浪免费版只能电话申请，不能在网上申请。鉴于第一次使用企业邮箱，并且目前所需的邮箱数也不多，免费版相对比较适合我。</p>
+<p>申请企业邮箱，首先要有自己的域名。我去万网上搜了一下，发现居然提供<code>.ac.cn</code>的域名，要知道，这可是研究机构的常用域名，申请这种域名在我的行当里可比<code>.com</code>之类的域名正式多了。而且看万网的报价，这类域名价格也不高（可能是因为没有什么人用吧…）。于是我果断拿下了<code>esic.ac.cn</code>的域名。此时心里不禁想多申请几个，至少我就知道有几个大项目可还没申请域名呢，说不定能卖个好价钱。</p>
+<p>有了自己的域名，就可以申请企业邮箱了。本来出于对qq邮箱的无比崇拜，我想先投入企鹅的怀抱的，但是阴差阳错，居然先试了网易的企业邮。结果不出所料，果然不好使。在设置域名解析的过程中，居然显示<code>过多多级域名</code>的错误，要我申诉。呵呵，鬼才去申诉呢，果断转投qq企业邮箱。利用万网提供的快速解析设置，很轻松的就搞定了一切设置。企业邮箱也成功建立起来了</p>
+<h2 id="坑及填坑">坑及填坑</h2>
+<p>接下来就要设置注册系统的发送了。这里有一个不知道算不算坑的坑，主要还是因为我对python以及那个注册系统并不算特别了解。在设置SMTP服务的时候，要求输入SMTP服务器及端口号。我按照QQ的提示设置了服务器地址以及465端口，发现注册系统居然无法发送邮件！解决办法其实很简单，把端口换成25就好了，但是就是这么个问题折腾了半天。没文化，真可怕…</p>
 
-<p>Jacman 需要安装 Hexo 2.7 及以上版本，请先升级您的 Hexo 程序，再启用此主题。</p>
-<h3 id="启用">启用</h3>
-<p>修改你的博客根目录下的<code>_config.yml</code>配置文件中的<code>theme</code>属性，将其设置为<code>jacman</code>。同时建议设置<code>stylus</code>属性中的<code>compress</code>值为true，会自动压缩 CSS 文件，hexo默认配置中不包含这一项，建议开启。如下。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">theme: jacman</div><div class="line">stylus:</div><div class="line">  <span class="built_in">compress</span>: <span class="constant">true</span></div></pre></td></tr></table></figure>
-
-<h3 id="更新">更新</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> themes/jacman</div><div class="line">git pull origin master</div></pre></td></tr></table></figure>
-
-<p>请先备份您主题目录下的 <code>_config.yml</code> 文件后再升级。</p>
-<p>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/14/how-to-use-jacman/#more">more >></a>
-          </p>
-        
       
     </div>
   </div>
