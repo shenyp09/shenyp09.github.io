@@ -4,7 +4,7 @@
   <subtitle><![CDATA[当你的才华还撑不起你的野心时，你就应该静下心来学习。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://shenyp09.github.io/"/>
-  <updated>2015-01-23T09:37:23.941Z</updated>
+  <updated>2015-01-26T08:04:09.054Z</updated>
   <id>http://shenyp09.github.io/</id>
   
   <author>
@@ -13,6 +13,189 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Css书写规范及顺序（转载）]]></title>
+    <link href="http://shenyp09.github.io/2015/01/26/CSS%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83%E5%8F%8A%E9%A1%BA%E5%BA%8F/"/>
+    <id>http://shenyp09.github.io/2015/01/26/CSS书写规范及顺序/</id>
+    <published>2015-01-26T07:50:45.000Z</published>
+    <updated>2015-01-26T08:03:59.000Z</updated>
+    <content type="html"><![CDATA[<p>原文地址：<a href="http://www.shejidaren.com/css-written-specifications.html" target="_blank" rel="external">http://www.shejidaren.com/css-written-specifications.html</a></p>
+<p>写了这么久的CSS，但大部分前端er都没有按照良好的CSS书写规范来写CSS代码，这样会影响代码的阅读体验，这里设计达人网总结一个CSS书写规范、CSS书写顺序供大家参考，这些是参考了国外一些文章以及我的个人经验总结出来，我想对写CSS的前端用户来说是值得学习的。</p>
+<h2 id="CSS书写顺序">CSS书写顺序</h2>
+<ol>
+<li>位置属性(position, top, right, z-index, display, float等)</li>
+<li>大小(width, height, padding, margin)</li>
+<li>文字系列(font, line-height, letter-spacing, color- text-align等)</li>
+<li>背景(background, border等)</li>
+<li>其他(animation, transition等)</li>
+</ol>
+<p><img src="http://images.shejidaren.com/wp-content/uploads/2013/09/css-written-order.png" alt="http://images.shejidaren.com/wp-content/uploads/2013/09/css-written-order.png"></p>
+<h2 id="CSS书写规范">CSS书写规范</h2>
+<p>CSS有些属性是可以缩写的，比如padding,margin,font等等，这样精简代码同时又能提高用户的阅读体验。</p>
+<p><img src="http://images.shejidaren.com/wp-content/uploads/2013/09/abbreviation.png" alt="http://images.shejidaren.com/wp-content/uploads/2013/09/abbreviation.png"></p>
+<h3 id="去掉小数点前的“0”">去掉小数点前的“0”</h3>
+<p><img src="http://images.shejidaren.com/wp-content/uploads/2013/09/del-zero.png" alt="http://images.shejidaren.com/wp-content/uploads/2013/09/del-zero.png"></p>
+<h3 id="简写命名">简写命名</h3>
+<p>很多用户都喜欢简写类名，但前提是要让人看懂你的命名才能简写哦！</p>
+<p><img src="http://images.shejidaren.com/wp-content/uploads/2013/09/name.png" alt="http://images.shejidaren.com/wp-content/uploads/2013/09/name.png"></p>
+<h3 id="16进制颜色代码缩写">16进制颜色代码缩写</h3>
+<p>有些颜色代码是可以缩写的，我们就尽量缩写吧，提高用户体验为主。</p>
+<p><img src="http://images.shejidaren.com/wp-content/uploads/2013/09/color-abb.png" alt="http://images.shejidaren.com/wp-content/uploads/2013/09/color-abb.png"></p>
+<h3 id="连字符CSS选择器命名规范">连字符CSS选择器命名规范</h3>
+<ol>
+<li><p>长名称或词组可以使用中横线来为选择器命名。</p>
+</li>
+<li><p>不建议使用“_”下划线来命名CSS选择器，为什么呢？</p>
+<ul>
+<li>输入的时候少按一个shift键；</li>
+<li>浏览器兼容问题 （比如使用_tips的选择器命名，在IE6是无效的）</li>
+<li>能良好区分JavaScript变量命名（JS变量命名是用“_”）</li>
+</ul>
+</li>
+</ol>
+<p>这里有一篇破折号与下划线的详细讨论，英文：<a href="http://stackoverflow.com/questions/7560813/why-are-dashes-preferred-for-css-selectors-html-attributes" target="_blank" rel="external">点击查看</a> 中文篇：<a href="http://www.cnblogs.com/kaiye/archive/2011/06/13/3039046.html" target="_blank" rel="external">点击查看</a></p>
+<p><img src="http://images.shejidaren.com/wp-content/uploads/2013/09/underline.png" alt="http://images.shejidaren.com/wp-content/uploads/2013/09/underline.png"></p>
+<h3 id="不要随意使用id">不要随意使用id</h3>
+<p>id在JS是唯一的，不能多次使用，而使用class类选择器却可以重复使用，另外id的优先级优先与class，所以id应该按需使用，而不能滥用。</p>
+<p><img src="http://images.shejidaren.com/wp-content/uploads/2013/09/css-id.png" alt="http://images.shejidaren.com/wp-content/uploads/2013/09/css-id.png"></p>
+<h3 id="为选择器添加状态前缀">为选择器添加状态前缀</h3>
+<p>有时候可以给选择器添加一个表示状态的前缀，让语义更明了，比如下图是添加了“.is-”前缀。</p>
+<p><img src="http://images.shejidaren.com/wp-content/uploads/2013/09/status-select.png" alt="http://images.shejidaren.com/wp-content/uploads/2013/09/status-select.png"></p>
+<h2 id="CSS命名规范（规则）">CSS命名规范（规则）</h2>
+<h3 id="常用的CSS命名规则">常用的CSS命名规则</h3>
+<ul>
+<li>头：header</li>
+<li>内容：content/container</li>
+<li>尾：footer</li>
+<li>导航：nav</li>
+<li>侧栏：sidebar</li>
+<li>栏目：column</li>
+<li>页面外围控制整体佈局宽度：wrapper</li>
+<li>左右中：left right center</li>
+<li>登录条：loginbar</li>
+<li>标志：logo</li>
+<li>广告：banner</li>
+<li>页面主体：main</li>
+<li>热点：hot</li>
+<li>新闻：news</li>
+<li>下载：download</li>
+<li>子导航：subnav</li>
+<li>菜单：menu</li>
+<li>子菜单：submenu</li>
+<li>搜索：search</li>
+<li>友情链接：friendlink</li>
+<li>页脚：footer</li>
+<li>版权：copyright</li>
+<li>滚动：scroll</li>
+<li>内容：content</li>
+<li>标签：tags</li>
+<li>文章列表：list</li>
+<li>提示信息：msg</li>
+<li>小技巧：tips</li>
+<li>栏目标题：title</li>
+<li>加入：joinus</li>
+<li>指南：guide</li>
+<li>服务：service</li>
+<li>注册：regsiter</li>
+<li>状态：status</li>
+<li>投票：vote</li>
+<li>合作伙伴：partner</li>
+</ul>
+<h3 id="注释的写法">注释的写法</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/<span class="keyword">*</span> Header <span class="keyword">*</span>/</div><div class="line">内容区</div><div class="line">/<span class="keyword">*</span> End Header <span class="keyword">*</span>/</div></pre></td></tr></table></figure>
+
+<h3 id="Id的命名">Id的命名</h3>
+<ol>
+<li>页面结构<ul>
+<li>容器: container</li>
+<li>页头：header</li>
+<li>内容：content/container</li>
+<li>页面主体：main</li>
+<li>页尾：footer</li>
+<li>导航：nav</li>
+<li>侧栏：sidebar</li>
+<li>栏目：column</li>
+<li>页面外围控制整体佈局宽度：wrapper</li>
+<li>左右中：left right center</li>
+</ul>
+</li>
+<li>导航<ul>
+<li>导航：nav</li>
+<li>主导航：mainnav</li>
+<li>子导航：subnav</li>
+<li>顶导航：topnav</li>
+<li>边导航：sidebar</li>
+<li>左导航：leftsidebar</li>
+<li>右导航：rightsidebar</li>
+<li>菜单：menu</li>
+<li>子菜单：submenu</li>
+<li>标题: title</li>
+<li>摘要: summary</li>
+</ul>
+</li>
+<li>功能<ul>
+<li>标志：logo</li>
+<li>广告：banner</li>
+<li>登陆：login</li>
+<li>登录条：loginbar</li>
+<li>注册：register</li>
+<li>搜索：search</li>
+<li>功能区：shop</li>
+<li>标题：title</li>
+<li>加入：joinus</li>
+<li>状态：status</li>
+<li>按钮：btn</li>
+<li>滚动：scroll</li>
+<li>标籤页：tab</li>
+<li>文章列表：list</li>
+<li>提示信息：msg</li>
+<li>当前的: current</li>
+<li>小技巧：tips</li>
+<li>图标: icon</li>
+<li>注释：note</li>
+<li>指南：guild</li>
+<li>服务：service</li>
+<li>热点：hot</li>
+<li>新闻：news</li>
+<li>下载：download</li>
+<li>投票：vote</li>
+<li>合作伙伴：partner</li>
+<li>友情链接：link</li>
+<li>版权：copyright</li>
+</ul>
+</li>
+<li>注意事项<ul>
+<li>一律小写;</li>
+<li>尽量用英文;</li>
+<li>不加中槓和下划线;</li>
+<li>尽量不缩写，除非一看就明白的单词。</li>
+</ul>
+</li>
+<li>CSS样式表文件命名<ul>
+<li>主要的 master.css</li>
+<li>模块 module.css</li>
+<li>基本共用 base.css</li>
+<li>布局、版面 layout.css</li>
+<li>主题 themes.css</li>
+<li>专栏 columns.css</li>
+<li>文字 font.css</li>
+<li>表单 forms.css</li>
+<li>补丁 mend.css</li>
+<li>打印 print.css</li>
+</ul>
+</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>原文地址：<a href="http://www.shejidaren.com/css-written-specifications.html" target="_blank" rel="external">http://www.shejidaren.com/css-wri]]>
+    </summary>
+    
+      <category term="CSS" scheme="http://shenyp09.github.io/tags/CSS/"/>
+    
+      <category term="网页设计" scheme="http://shenyp09.github.io/categories/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[人性经得起考验吗？（转载）]]></title>
